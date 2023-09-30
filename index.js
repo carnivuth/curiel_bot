@@ -25,12 +25,10 @@ bot.onText(/\/prenota/, (msg, match) => {
     const chatId = msg.chat.id;
     const resp = "prenotato"; 
   
-    // send back the matched "whatever" to the chat
     bot.sendMessage(chatId, resp);
   });
 
-// Listen for any kind of message. There are different kinds of
-// messages.
+
 //bot.on('message', (msg) => {
 //  const chatId = msg.chat.id;
 //
