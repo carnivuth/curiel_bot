@@ -1,4 +1,5 @@
 percistance=require("../common/percistance")
+const crypto=require("crypto")
 module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
     console.log(msg);
     var resp;
