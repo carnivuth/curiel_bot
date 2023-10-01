@@ -3,3 +3,4 @@ prenota - usage: prenota <giorno> per prenotare la lavatrice per un dato giorno
 manca - usage: manca <oggetto> segnala che in casa e finito un certo oggetto
 preso - usage: preso <oggetto> segnala che hai comprato un certo oggetto che mancava
 mancanze - usage: mancanze  elenca le mancanze
+admin - controlla se sei admin
