@@ -27,3 +27,4 @@ require('./src/spesa/preso')(bot);
 
 //ADMIN COMMANDS
 require('./src/admin/admin')(bot);
+require('./src/admin/rimuovimancanze')(bot);
