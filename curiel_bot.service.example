@@ -1,0 +1,12 @@
+[Unit]
+Description=curiel_bot - bot for home management
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/<user-dir>/curiel_bot/
+ExecStart=/usr/bin/node /home/<user-dir>/curiel_bot/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
