@@ -13,11 +13,11 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
     UUID = crypto.randomUUID();
     console.log(UUID);
     //check for 
-    mancanze.filter(function (item) {
+    data=mancanze.filter(function (item) {
       return item.mancanza == oggettoMancante;
     });
 
-    if(mancanze.length== 0){
+    if(data.length== 0){
       mancanze.push({
         username: msg.from.username,
         mancanza: oggettoMancante,
