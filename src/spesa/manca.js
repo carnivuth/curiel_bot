@@ -14,7 +14,7 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
     console.log(UUID);
     //check for 
     mancanze.filter(function (item) {
-      return item.mancanza === oggettoMancante;
+      return item.mancanza == oggettoMancante;
     });
 
     if(mancanze.length== 0){
