@@ -12,19 +12,30 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
   
     UUID = crypto.randomUUID();
     console.log(UUID);
-  
-    mancanze.push({
-      username: msg.from.username,
-      mancanza: oggettoMancante,
-      UUID: UUID,
+    //check for 
+    mancanze.filter(function (item) {
+      return item.mancanza === oggettoMancante;
     });
-    percistance.saveToJson("mancanze.json", mancanze);
+
+    if(mancanze.length== 0){
+      mancanze.push({
+        username: msg.from.username,
+        mancanza: oggettoMancante,
+        UUID: UUID,
+      });
+      percistance.saveToJson("mancanze.json", mancanze);
   
     resp =
       "oggetto mancante: " +
       oggettoMancante +
       " aggiunto da @" +
       msg.from.username;
+    }else{
+      resp =
+      "oggetto gia presente! vai easy" 
+    }
+   
+    
     bot.sendMessage(chatId, resp);
   });
   }
