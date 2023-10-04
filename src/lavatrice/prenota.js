@@ -1,7 +1,7 @@
 percistance = require("../common/percistance");
 dateutils = require("../common/dateutils");
 module.exports = function prenota(bot) {
-  bot.onText(/\/prenota ([a-zA-Z]+) ([1-5])/, (msg, match) => {
+  bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5])/, (msg, match) => {
     console.log(msg);
 
     const chatId = msg.chat.id;

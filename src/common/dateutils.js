@@ -5,6 +5,11 @@ weekdays.set("martedi", 2);
 weekdays.set("mercoledi", 3);
 weekdays.set("giovedi", 4);
 weekdays.set("venerdi", 5);
+weekdays.set("lunedì", 1);
+weekdays.set("martedì", 2);
+weekdays.set("mercoledì", 3);
+weekdays.set("giovedì", 4);
+weekdays.set("venerdì", 5);
 weekdays.set("sabato", 6);
 weekdays.set("domenica", 0);
 
