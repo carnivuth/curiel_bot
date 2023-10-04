@@ -1,6 +1,7 @@
 echo 'init json file'
-mkdir resources
-echo '[]'> resources/mancanze.json
+mkdir data
+echo '[]'> data/mancanze.json
+echo '[]'> data/turni.json
 
 echo 'creating env file'
 cp .env.example .env
