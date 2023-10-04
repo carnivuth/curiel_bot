@@ -17,6 +17,7 @@ const bot = new TelegramBot(token, { polling: true });
 require("./src/lavatrice/lavatrice")(bot);
 require("./src/lavatrice/prenota")(bot);
 require("./src/lavatrice/libera")(bot);
+require("./src/lavatrice/turni")(bot);
 
 // SPESA  COMMANDS
 require("./src/spesa/manca")(bot);

@@ -1,7 +1,7 @@
 module.exports = function lavatrice(bot) {
   bot.onText(/\/lavatrice/, (msg, match) => {
     console.log(msg);
-    var resp = "TURNI:\n";
+    var resp = "PRENOTAZIONI:\n";
     const chatId = msg.chat.id;
 
     data = percistance.loadFromJson("turni.json");
