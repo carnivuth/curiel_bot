@@ -1,6 +1,7 @@
 percistance = require("../common/percistance");
+dateutils = require("../common/dateutils");
 module.exports = function prenota(bot) {
-  bot.onText(/\/prenota ([a-zA-Z]+) ([0-9])/, (msg, match) => {
+  bot.onText(/\/prenota ([a-zA-Z]+) ([1-4])/, (msg, match) => {
     console.log(msg);
 
     const chatId = msg.chat.id;
@@ -8,13 +9,13 @@ module.exports = function prenota(bot) {
     var giorno = match[1];
     var turno = match[2];
 
-    if (getdaynumber(giorno) == undefined) {
+    if (dateutils.getdaynumber(giorno) == undefined) {
       resp = "hai sbagliato il giorno, vai nel gulag";
       bot.sendMessage(chatId, resp);
       return;
     }
 
-    giorno = getdatefromweekday(getdaynumber(giorno));
+    giorno = dateutils.getdatefromweekday(dateutils.getdaynumber(giorno));
     turni = percistance.loadFromJson("turni.json");
 
     data = turni.filter(function (item) {
@@ -33,7 +34,7 @@ module.exports = function prenota(bot) {
         "turno: " +
         turno +
         " del giorno: " +
-        giorno.toString() +
+        giorno.toLocaleDateString() +
         " assegnato a @" +
         msg.from.username;
     } else {
@@ -42,23 +43,3 @@ module.exports = function prenota(bot) {
     bot.sendMessage(chatId, resp);
   });
 };
-const weekdays = new Map();
-
-weekdays.set("lunedi", 1);
-weekdays.set("martedi", 2);
-weekdays.set("mercoledi", 3);
-weekdays.set("giovedi", 4);
-weekdays.set("venerdi", 5);
-weekdays.set("sabato", 6);
-weekdays.set("domenica", 0);
-
-function getdaynumber(day) {
-  return weekdays.get(day);
-}
-function getdatefromweekday(day) {
-  date = new Date();
-  while (day != date.getDay()) {
-    date.setDate(date.getDate() + 1);
-  }
-  return date;
-}
