@@ -1,5 +1,6 @@
 lavatrice - ottieni il calendario lavatrice per questa settimana
-prenota - usage: prenota <giorno> per prenotare la lavatrice per un dato giorno
+prenota - usage: prenota <giorno> <turno> per prenotare la lavatrice per un dato giorno a un dato turno(1|2|3|4)
+libera - usage: libera <giorno> <turno>  libera il turno prenotato
 manca - usage: manca <oggetto> segnala che in casa e finito un certo oggetto
 preso - usage: preso <oggetto> segnala che hai comprato un certo oggetto che mancava
 mancanze - usage: mancanze  elenca le mancanze

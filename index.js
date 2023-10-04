@@ -1,5 +1,5 @@
 const TelegramBot = require("node-telegram-bot-api");
-const admin=require("./src/admin/admin")
+const admin = require("./src/admin/admin");
 
 //dotenv config
 require("dotenv").config();
@@ -13,18 +13,16 @@ const token = process.env.TOKEN;
 
 const bot = new TelegramBot(token, { polling: true });
 
-
 // LAVATRICE COMMANDS
-require('./src/lavatrice/lavatrice')(bot);
-require('./src/lavatrice/prenota')(bot);
-
-
+require("./src/lavatrice/lavatrice")(bot);
+require("./src/lavatrice/prenota")(bot);
+require("./src/lavatrice/libera")(bot);
 
 // SPESA  COMMANDS
-require('./src/spesa/manca')(bot);
-require('./src/spesa/mancanze')(bot);
-require('./src/spesa/preso')(bot);
+require("./src/spesa/manca")(bot);
+require("./src/spesa/mancanze")(bot);
+require("./src/spesa/preso")(bot);
 
 //ADMIN COMMANDS
-require('./src/admin/admin')(bot);
-require('./src/admin/rimuovimancanze')(bot);
+require("./src/admin/admin")(bot);
+require("./src/admin/rimuovimancanze")(bot);
