@@ -4,11 +4,6 @@ const admin = require("./src/admin/admin");
 //dotenv config
 require("dotenv").config();
 
-//cripto for random UUID
-const crypto = require("crypto");
-
-//fs for json percistency
-
 const token = process.env.TOKEN;
 
 const bot = new TelegramBot(token, { polling: true });

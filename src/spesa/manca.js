@@ -10,8 +10,6 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
     mancanze = percistance.loadFromJson("mancanze.json");
     console.log(mancanze);
   
-    UUID = crypto.randomUUID();
-    console.log(UUID);
     //check for 
     data=mancanze.filter(function (item) {
       return item.mancanza == oggettoMancante;
@@ -21,7 +19,6 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
       mancanze.push({
         username: msg.from.username,
         mancanza: oggettoMancante,
-        UUID: UUID,
       });
       percistance.saveToJson("mancanze.json", mancanze);
   
