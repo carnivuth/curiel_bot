@@ -1,0 +1,3 @@
+- remove useless data visualization on lavatrice command
+- add chat based data structure
+- general refactor?
