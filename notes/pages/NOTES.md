@@ -1,0 +1,3 @@
+- add chat based data structure 
+- general refactor?
+- add house management functionality

@@ -1,5 +1,0 @@
-- remove useless data visualization on lavatrice command DONE
-- add chat based data structure 
-- general refactor?
-- - remove unused parameters? UUID? DONE 
-- - search compatibility issue

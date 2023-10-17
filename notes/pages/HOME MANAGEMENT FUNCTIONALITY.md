@@ -1,0 +1,2 @@
+- richiedere una mansione per la settimana tipo  "pulire bagno" con eliminazione per quella settimana  di eventuali prenotazioni precedenti
+- visualizzare mansioni per la settimana divise in prenotate e libere

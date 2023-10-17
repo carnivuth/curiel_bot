@@ -1,0 +1,2 @@
+- deployment on a ec2 instance on AWS cloud
+- no container 

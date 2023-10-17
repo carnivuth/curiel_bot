@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"2eced72205987d71","type":"text","text":"# BUG FIX \n- fiixed data visualization on `/lavatrice` command that displays reservations before the today date\n- removed unused UUID parameter from objects on [[SPESA FUNCTIONALITY]]","x":-330,"y":1360,"width":340,"height":276},
+		{"id":"e94c9d565d57aacc","x":-285,"y":1760,"width":250,"height":210,"type":"text","text":"# NEW COLLABORATOR\n- gabriele aka [gabryanpo](https://github.com/gabrynapo)"},
+		{"id":"ec76ab7eff250a4c","type":"file","file":"pages/LAVATRICE FUNCTIONALITY.md","x":-620,"y":640,"width":520,"height":521},
+		{"id":"37b813e3861659f4","type":"file","file":"pages/REFACTOR FOR SINGLE RESPONSIBILITY PRINCIPLE.md","x":-455,"y":160,"width":250,"height":394},
+		{"id":"9f6c19fa6cb7dede","type":"file","file":"pages/INITIAL RESARCH.md","x":-730,"y":-1960,"width":400,"height":200},
+		{"id":"7a0e4468f130840e","type":"file","file":"pages/DATA STRUCTURE.md","x":-20,"y":-1191,"width":400,"height":276},
+		{"id":"efa542150e69bb39","type":"file","file":"pages/SPESA FUNCTIONALITY.md","x":-1360,"y":-1244,"width":400,"height":658},
+		{"id":"ee4d2dea0342c9f1","type":"file","file":"ADMIN FEATURES.md","x":-620,"y":-400,"width":250,"height":261},
+		{"id":"fa1b3554d28bb42f","type":"file","file":"pages/AWS DEPLOYMENT.md","x":-1080,"y":-20,"width":400,"height":41},
+		{"id":"bd6eb55e8911e3ca","type":"file","file":"pages/CONTAINERIZATION.md","x":-160,"y":-20,"width":400,"height":41}
+	],
+	"edges":[
+		{"id":"1c6f5f03268d7339","fromNode":"9f6c19fa6cb7dede","fromSide":"bottom","toNode":"efa542150e69bb39","toSide":"top"},
+		{"id":"dc779ffd8f604d29","fromNode":"efa542150e69bb39","fromSide":"bottom","toNode":"ee4d2dea0342c9f1","toSide":"top"},
+		{"id":"77c4b77391e950fd","fromNode":"ee4d2dea0342c9f1","fromSide":"bottom","toNode":"fa1b3554d28bb42f","toSide":"top"},
+		{"id":"8dfd5ad6d1cb95c1","fromNode":"fa1b3554d28bb42f","fromSide":"right","toNode":"bd6eb55e8911e3ca","toSide":"left"},
+		{"id":"b17b4390f9fc097c","fromNode":"bd6eb55e8911e3ca","fromSide":"left","toNode":"fa1b3554d28bb42f","toSide":"right"},
+		{"id":"52391f0ab0d9b6b5","fromNode":"ee4d2dea0342c9f1","fromSide":"bottom","toNode":"bd6eb55e8911e3ca","toSide":"top"},
+		{"id":"9ccffb0b812bec44","fromNode":"fa1b3554d28bb42f","fromSide":"bottom","toNode":"37b813e3861659f4","toSide":"top"},
+		{"id":"4676b91825908f28","fromNode":"efa542150e69bb39","fromSide":"right","toNode":"7a0e4468f130840e","toSide":"left"},
+		{"id":"e4057102a75080c7","fromNode":"37b813e3861659f4","fromSide":"bottom","toNode":"ec76ab7eff250a4c","toSide":"top"},
+		{"id":"28a9e959362f2c7b","fromNode":"ec76ab7eff250a4c","fromSide":"bottom","toNode":"2eced72205987d71","toSide":"top"},
+		{"id":"bae361c71684f11b","fromNode":"2eced72205987d71","fromSide":"bottom","toNode":"e94c9d565d57aacc","toSide":"top"},
+		{"id":"203eeda3118cfe9b","fromNode":"7a0e4468f130840e","fromSide":"left","toNode":"efa542150e69bb39","toSide":"right"}
+	]
+}
