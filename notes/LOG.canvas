@@ -10,7 +10,8 @@
 		{"id":"efa542150e69bb39","type":"file","file":"pages/SPESA FUNCTIONALITY.md","x":-1140,"y":-1260,"width":400,"height":658},
 		{"id":"9f6c19fa6cb7dede","type":"file","file":"pages/INITIAL RESARCH.md","x":-740,"y":-1720,"width":400,"height":200},
 		{"id":"ee4d2dea0342c9f1","type":"file","file":"pages/ADMIN FEATURES.md","x":-590,"y":-500,"width":250,"height":261},
-		{"id":"8cedc00e3887327c","x":-745,"y":1660,"width":250,"height":60,"type":"text","text":"## BUG \n- reservation on the actual date are not shown"}
+		{"id":"8cedc00e3887327c","type":"text","text":"## BUG \n- reservation on the actual date are not shown","x":-745,"y":1660,"width":250,"height":148},
+		{"id":"0388df0fd83d549e","type":"text","text":"[[ADMIN FEATURES#USE CASES]]","x":-1055,"y":1322,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"1c6f5f03268d7339","fromNode":"9f6c19fa6cb7dede","fromSide":"bottom","toNode":"efa542150e69bb39","toSide":"top"},
