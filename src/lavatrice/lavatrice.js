@@ -10,7 +10,7 @@ module.exports = function lavatrice(bot) {
     
 
     data = reservations.filter(function (item) {
-      return item.date  < today.toLocaleDateString();
+      return new Date(item.date).getTime() >  today.getTime();
     });
 
     if (data.length == 0) {

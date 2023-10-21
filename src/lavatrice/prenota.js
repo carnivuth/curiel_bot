@@ -25,7 +25,7 @@ module.exports = function prenota(bot) {
     if (data.length == 0) {
       turni.push({
         username: msg.from.username,
-        date: giorno.toLocaleDateString(),
+        date: giorno.toJSON(),
         turn: turno,
       });
       percistance.saveToJson("turni.json", turni);
