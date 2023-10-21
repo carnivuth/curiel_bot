@@ -6,7 +6,6 @@ kanban-plugin: basic
 
 ## BUGS
 
-- [ ] fix date on lavatrice functionality
 
 
 ## TODO
@@ -20,6 +19,7 @@ kanban-plugin: basic
 ## COMPLETED
 
 **Complete**
+- [x] fix date on lavatrice functionality
 
 
 
