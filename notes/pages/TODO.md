@@ -14,12 +14,14 @@ kanban-plugin: basic
 - [ ] rename things in english
 - [ ] refactor for setup text in a config file
 - [ ] [HOME MANAGEMENT FUNCTIONALITY](HOME%20MANAGEMENT%20FUNCTIONALITY.md)
+- [ ] add multiple parameter support on /manca command
 
 
 ## COMPLETED
 
 **Complete**
 - [x] fix date on lavatrice functionality
+- [x] add multiple parameter support on /preso command
 
 
 

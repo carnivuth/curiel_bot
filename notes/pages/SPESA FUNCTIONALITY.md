@@ -12,5 +12,5 @@
 ## USE CASE
 
 - `/manca` 'object' -> signal something is missing
-- `/preso` 'object' -> signal that you have bought something
+- `/preso` 'object' -> signal that you have bought something, supports multiple objects
 - `/mancanze` -> list what is missing
