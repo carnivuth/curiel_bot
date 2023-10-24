@@ -5,12 +5,14 @@ module.exports=function preso(bot){
         var resp;
         const chatId = msg.chat.id;
       
-        oggettoPreso = match[1];
+        //objectsTaken = match[1].split(" ");
+        objectsTaken = match[1];
+
       
         mancanze = percistance.loadFromJson("mancanze.json");
         console.log(mancanze);
         mancanze = mancanze.filter(function (item) {
-          return item.mancanza !== oggettoPreso;
+          return !objectsTaken.includes(item.mancanza);
         });
       
         percistance.saveToJson("mancanze.json", mancanze);
