@@ -3,14 +3,16 @@ module.exports = function lavatrice(bot) {
     console.log(msg);
     var resp = "PRENOTAZIONI:\n";
     const chatId = msg.chat.id;
-    today= new Date()
+    //check for yesterday note
+    yesterday= new Date()
+    yesterday.setDate(new Date().getDate()-1)
 
     reservations = percistance.loadFromJson("turni.json");
     console.log(reservations);
     
 
     data = reservations.filter(function (item) {
-      return new Date(item.date).getTime() >  today.getTime();
+      return new Date(item.date).getTime() >  yesterday.getTime();
     });
 
     if (data.length == 0) {
@@ -24,7 +26,7 @@ module.exports = function lavatrice(bot) {
         "@" +
         element.username +
         " ha prenotato " +
-        element.date +
+        new Date(element.date).toLocaleDateString() +
         " il turno " +
         element.turn +
         "\n";
