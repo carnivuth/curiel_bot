@@ -20,6 +20,7 @@ kanban-plugin: basic
 ## COMPLETED
 
 **Complete**
+- [x] fix visualization bug on lavatrice command
 - [x] fix date on lavatrice functionality
 - [x] add multiple parameter support on /preso command
 
