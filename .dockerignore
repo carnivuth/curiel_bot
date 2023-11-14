@@ -4,3 +4,5 @@
 .git
 npm-debug.log
 resources
+data
+*.example
