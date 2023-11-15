@@ -30,4 +30,4 @@ jobs:
       - 
         name: Delete logs
         shell: bash
-        run: Delete_logs.sh curiel_bot 'build docker container'
+        run: ./delete_logs.sh curiel_bot 'build docker container'
