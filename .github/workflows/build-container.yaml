@@ -9,6 +9,11 @@ jobs:
   build_and_push_container:
     runs-on: ubuntu-latest
     steps:
+      
+      - name: checkout repo 
+        uses: actions/checkout@v4
+        with:
+          repository: carnivuth/curiel_bot
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -30,4 +35,4 @@ jobs:
       - 
         name: Delete logs
         shell: bash
-        run: ./delete_logs.sh curiel_bot 'build docker container'
+        run: $GITHUB_WORKSPACE/curiel_bot/delete_logs.sh curiel_bot 'build docker container'
