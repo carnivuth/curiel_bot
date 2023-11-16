@@ -1,0 +1,1 @@
+There is a CI-CD pipeline, implemented trough [github actions](https://github.com/features/actions)  used for container update in docker hub triggered by push on main branch

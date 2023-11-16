@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"e165a72917d31cb3","type":"text","text":"# CURIEL_BOT","x":-154,"y":-422,"width":250,"height":60},
+		{"id":"d4e3905034be76b1","type":"file","file":"pages/DOCKER DEPLOYMENT.md","x":80,"y":-260,"width":400,"height":400},
+		{"id":"7a3e2f33e4568848","type":"file","file":"pages/CI-CD PIPELINE.md","x":600,"y":-280,"width":400,"height":179}
+	],
+	"edges":[
+		{"id":"54fc78837db4db90","fromNode":"e165a72917d31cb3","fromSide":"bottom","toNode":"d4e3905034be76b1","toSide":"top"},
+		{"id":"998a38ad32d59acc","fromNode":"d4e3905034be76b1","fromSide":"right","toNode":"7a3e2f33e4568848","toSide":"left"},
+		{"id":"8040867ad78a2c86","fromNode":"7a3e2f33e4568848","fromSide":"left","toNode":"d4e3905034be76b1","toSide":"right"}
+	]
+}

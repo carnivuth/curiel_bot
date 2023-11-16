@@ -1,4 +1,3 @@
-- specific commands only for admin user
 
 ## USE CASES
 

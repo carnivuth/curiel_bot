@@ -14,3 +14,5 @@
 ```bash
 docker run -it --mount type=bind,source=<path/to/.env>,target=/usr/src/curiel_bot/.env --mount type=bind,source=<path/to/data/folder>,target=/usr/src/curiel_bot/data --name cb carnivuth/curiel_bot:latest 
 ```
+
+for more informations check [docker deployment](./notes/pages/DOCKER%20DEPLOYMENT.md)
