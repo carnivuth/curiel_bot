@@ -4,7 +4,8 @@
 ## INSTALLATION
 - clone repository
 - run  `npm install`
-- run `install.sh`
+- create `data` directory under `repository/path`
+- copy `.env.example` in `.env`
 - set variables on `.env` file
 - run with  `npm start`
 

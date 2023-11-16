@@ -1,7 +1,15 @@
 const path = require("path");
 const fs = require("fs");
 module.exports = persistance = {
+
   loadFromJson: function (file) {
+    try {
+      if (! fs.existsSync(path.resolve(__dirname, "../../" + process.env.DATA_FOLDER + "/" + file))) {
+        this.saveToJson(file,[])
+      }
+    } catch(err) {
+      console.error(err)
+    }
     return JSON.parse(
       fs.readFileSync(
         path.resolve(__dirname, "../../" + process.env.DATA_FOLDER + "/" + file)
