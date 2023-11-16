@@ -13,7 +13,7 @@ module.exports= function rimuovimancanze(bot){
           bot.sendMessage(chatId, resp);
           return;
         }
-        percistance.saveToJson('mancanze.json',[])
+        percistance.saveToJson('mancanze-'+chatId+'.json',[])
         resp = "rimosse tutte le mancanze!";
         console.log(resp);
       

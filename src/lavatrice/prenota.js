@@ -16,7 +16,7 @@ module.exports = function prenota(bot) {
     }
 
     giorno = dateutils.getdatefromweekday(dateutils.getdaynumber(giorno));
-    turni = percistance.loadFromJson("turni.json");
+    turni = percistance.loadFromJson("turni"+chatId+".json");
 
     data = turni.filter(function (item) {
       return item.date == giorno.toLocaleDateString() && item.turn == turno;
@@ -28,7 +28,7 @@ module.exports = function prenota(bot) {
         date: giorno.toJSON(),
         turn: turno,
       });
-      percistance.saveToJson("turni.json", turni);
+      percistance.saveToJson("turni-"+chatId+".json", turni);
 
       resp =
         "turno: " +

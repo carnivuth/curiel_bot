@@ -5,7 +5,7 @@ module.exports = function mancanze(bot) {
     var resp = "in casa manca:\n";
     const chatId = msg.chat.id;
 
-    data = percistance.loadFromJson("mancanze.json");
+    data = percistance.loadFromJson("mancanze-"+chatId+".json");
     console.log(data);
     if (data.length == 0) {
       resp = "non manca niente";

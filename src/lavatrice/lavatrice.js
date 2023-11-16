@@ -7,7 +7,7 @@ module.exports = function lavatrice(bot) {
     yesterday= new Date()
     yesterday.setDate(new Date().getDate()-1)
 
-    reservations = percistance.loadFromJson("turni.json");
+    reservations = percistance.loadFromJson("turni-"+chatId+".json");
     console.log(reservations);
     
 

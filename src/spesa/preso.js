@@ -9,13 +9,13 @@ module.exports=function preso(bot){
         objectsTaken = match[1];
 
       
-        mancanze = percistance.loadFromJson("mancanze.json");
+        mancanze = percistance.loadFromJson("mancanze-"+chatId+".json");
         console.log(mancanze);
         mancanze = mancanze.filter(function (item) {
           return !objectsTaken.includes(item.mancanza);
         });
       
-        percistance.saveToJson("mancanze.json", mancanze);
+        percistance.saveToJson("mancanze-"+chatId+".json", mancanze);
       
         resp = "mancanze aggiornate!";
         console.log(resp);

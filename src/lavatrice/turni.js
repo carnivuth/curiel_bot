@@ -4,7 +4,7 @@ module.exports = function turni(bot) {
     var resp = "TURNI:\n";
     const chatId = msg.chat.id;
 
-    data = percistance.loadSettings("divisione-turni.json");
+    data = percistance.loadSettings("divisione-turni-"+chatId+".json");
     console.log(data);
   
     data.forEach((element) => {

@@ -7,7 +7,7 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
   
     oggettoMancante = match[1];
   
-    mancanze = percistance.loadFromJson("mancanze.json");
+    mancanze = percistance.loadFromJson("mancanze-"+chatId+".json");
     console.log(mancanze);
   
     //check for 
@@ -20,7 +20,7 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
         username: msg.from.username,
         mancanza: oggettoMancante,
       });
-      percistance.saveToJson("mancanze.json", mancanze);
+      percistance.saveToJson("mancanze-"+chatId+".json", mancanze);
   
     resp =
       "oggetto mancante: " +
