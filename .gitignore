@@ -2,4 +2,5 @@ node_modules
 .env
 data
 notes/.obsidian/workspace.json
+migrations
  
