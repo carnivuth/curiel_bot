@@ -10,7 +10,18 @@
   "author": "carnivuth",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.9.1",
     "dotenv": "^16.3.1",
     "node-telegram-bot-api": "^0.63.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "prisma": "^5.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
+  
 }
