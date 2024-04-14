@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 module.exports = persistance = {
-
+//prova
   loadFromJson: function (file) {
     try {
       if (! fs.existsSync(path.resolve(__dirname, "../../" + process.env.DATA_FOLDER + "/" + file))) {
