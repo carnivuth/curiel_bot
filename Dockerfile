@@ -1,6 +1,11 @@
 FROM node:latest
-WORKDIR /usr/src/curiel_bot
+# create data folder and seed initial data
+ENV DATA_FOLDER=/var/lib/curiel_bot
+RUN mkdir -p $DATA_FOLDER/data
+COPY command-list.txt $DATA_FOLDER/command-list.txt
+COPY turns.json $DATA_FOLDER/turns.json
+# install sources
+WORKDIR /usr/local/curiel_bot
 COPY . .
-COPY command-list.txt /var/lib/curiel_bot/command-list.txt
 RUN npm install
 CMD ["node", "index.js"]

@@ -4,9 +4,9 @@ module.exports = function turni(bot) {
     var resp = "TURNI:\n";
     const chatId = msg.chat.id;
 
-    data = percistance.loadSettings("divisione-turni.json");
+    data = percistance.loadFromJson("divisione-turni.json");
     console.log(data);
-  
+
     data.forEach((element) => {
       resp +=
         "TURNO" +

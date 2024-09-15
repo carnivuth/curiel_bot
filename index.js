@@ -1,5 +1,4 @@
 const TelegramBot = require("node-telegram-bot-api");
-const admin = require("./src/admin/admin");
 
 //dotenv config
 require("dotenv").config();
