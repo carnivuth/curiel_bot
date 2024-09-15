@@ -1,0 +1,11 @@
+services:
+  curiel_bot:
+    image: carnivuth/curiel_bot:latest
+    restart: unless-stopped
+    environment:
+      TOKEN: "<INSERT TOKEN HERE>"
+      SETTINGS_FOLDER: settings
+      DATA_FOLDER: data
+      ADMIN: "<TELEGRAM USERNAME OF ADMIN USER>"
+    volumes:
+      - '<PATH TO DATA FOLDER ON DISK>:/usr/src/curiel_bot/data'

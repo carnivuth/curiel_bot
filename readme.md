@@ -15,7 +15,7 @@ services:
       TOKEN: "<INSERT TELEGRAM TOKEN>"
       SETTINGS_FOLDER: settings
       DATA_FOLDER: data
-      ADMIN: "<INSERT TELEGRAM ADMIN USERNAME"
+      ADMIN: "<INSERT TELEGRAM ADMIN USERNAME>"
     volumes:
       - '<PATH TO BOT DATA FOLDER>:/usr/src/curiel_bot/data'
 ```
