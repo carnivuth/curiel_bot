@@ -7,3 +7,4 @@ preso - usage: preso <oggetto> segnala che hai comprato un certo oggetto che man
 mancanze - usage: mancanze  elenca le mancanze
 admin - controlla se sei admin
 rimuovimancanze - ADMIN rimuvi tutte le mancanze
+help - mostra la lista di possibili comandi
