@@ -1,3 +1,0 @@
-- struttura dati a scorrimento giornaliero, con autoremove(logica di esclusione per mantenere lo storico),
-- traduzione nomi di giorni in date(problema con l'italiano)
-- nome giorno in input -> creazione oggetto data, inserimento in struttura
