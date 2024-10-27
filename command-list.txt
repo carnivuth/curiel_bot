@@ -1,10 +1,10 @@
-lavatrice - ottieni il calendario lavatrice per questa settimana
-prenota - usage: prenota <giorno> <turno> per prenotare la lavatrice per un dato giorno a un dato turno(1|2|3|4)
-libera - usage: libera <giorno> <turno>  libera il turno prenotato
-turni - usage: visualizza la lista dei turni
-manca - usage: manca <oggetto> segnala che in casa e finito un certo oggetto
-preso - usage: preso <oggetto> segnala che hai comprato un certo oggetto che mancava
-mancanze - usage: mancanze  elenca le mancanze
-admin - controlla se sei admin
-rimuovimancanze - ADMIN rimuvi tutte le mancanze
-help - mostra la lista di possibili comandi
+lavatrice - get washing machine's reservation for the next 7 days
+prenota - make reservation for the washing machine at a specific turn of a day
+libera - delete washing machine reservation #TODO
+turni - get washing machine's turn schedule
+manca - add item to the shopping list
+preso - remove item from the shopping list
+mancanze -  print shopping list
+admin - check if current user is the admin bot
+rimuovimancanze - remove all elements from shopping list
+help - show help command
