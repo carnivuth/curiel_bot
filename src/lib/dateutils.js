@@ -13,7 +13,7 @@ weekdays.set("venerdì", 5);
 weekdays.set("sabato", 6);
 weekdays.set("domenica", 0);
 
-module.exports = dateutils = {
+module.exports = {
   getdaynumber(day) {
     return weekdays.get(day);
   },

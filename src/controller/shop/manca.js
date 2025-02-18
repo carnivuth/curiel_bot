@@ -1,16 +1,15 @@
 percistance=require("../common/percistance")
-const crypto=require("crypto")
 module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
     console.log(msg);
     var resp;
     const chatId = msg.chat.id;
-  
+
     oggettoMancante = match[1];
-  
+
     mancanze = percistance.loadFromJson("mancanze-"+chatId+".json");
     console.log(mancanze);
-  
-    //check for 
+
+    //check for
     data=mancanze.filter(function (item) {
       return item.mancanza == oggettoMancante;
     });
@@ -21,7 +20,7 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
         mancanza: oggettoMancante,
       });
       percistance.saveToJson("mancanze-"+chatId+".json", mancanze);
-  
+
     resp =
       "oggetto mancante: " +
       oggettoMancante +
@@ -29,10 +28,10 @@ module.exports=function manca(bot){bot.onText(/\/manca (.+)/, (msg, match) => {
       msg.from.username;
     }else{
       resp =
-      "oggetto gia presente! vai easy" 
+      "oggetto gia presente! vai easy"
     }
-   
-    
+
+
     bot.sendMessage(chatId, resp);
   });
   }
