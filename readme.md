@@ -61,38 +61,38 @@ The bot is developed using [node.js](https://nodejs.org/) and [telegram-bot-api]
 
 ```mermaid
 classDiagram
-    note "From Duck till Zebra"
     PersistentList <|-- ReservationList
     PersistentList <|-- ShopList
     Controller <|-- WasherController
     Controller <|-- AdminController
     Controller <|-- ShopController
+
     note for PersistentList "Implement persistence\nin json file"
     class PersistentList{
         +saveToJson()
         +LoadFromJson()
     }
+
+    note for Reservation "dataclass for reservations"
     class Reservation{
         +string username
         +date date
         +int turn
     }
-    class ReservationList{
-    }
-    class ShopList{
-    }
+
+    note for ShopItem "dataclass for shop items"
     class ShopItem{
         +string username
         +string itemName
     }
-    class Controller{
-    }
-    class WasherController{
-    }
-    class ShopController{
-    }
-    class AdminController{
-    }
+
+    class ReservationList{}
+    class ShopList{}
+
+    class Controller{ }
+    class WasherController{ }
+    class ShopController{ }
+    class AdminController{ }
 ```
 ## runtime architecture
 
@@ -104,8 +104,8 @@ A[telegram bot container]
 B[telegram api]
 C[chat-1.json]
 D[chat-2.json]
-B -- message in chat 1 -> A -- writes in --> C
-B -- message in chat 2 -> A -- writes in --> D
+B -- message in chat 1 --> A -- writes in --> C
+B -- message in chat 2 --> A -- writes in --> D
 
 ```
 
