@@ -49,6 +49,9 @@ services:
       ADMIN: "<TELEGRAM USERNAME OF ADMIN USER>"
     volumes:
       - '<PATH TO DATA FOLDER ON DISK>:/var/lib/curiel_bot/'
+        # needed for date localization
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
 ```
 
 ## Development documentation
@@ -136,6 +139,10 @@ services:
       ADMIN: "[YOUR TELEGRAM USERNAME]"
     volumes:
       - '/[PATH_TO_CLONED_REPO]/var:/var/lib/curiel_bot'
+        # needed for date localization
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+
 ```
 
 to build and rerun the container use the following command:
