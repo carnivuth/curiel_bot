@@ -1,13 +1,22 @@
 FROM node:latest
 # create data folder and seed initial data
 ENV DATA_FOLDER=/var/lib/curiel_bot
-RUN mkdir -p $DATA_FOLDER
-RUN chmod 777 $DATA_FOLDER
+ENV CONF_FOLDER=/etc/curiel_bot
+RUN mkdir -p $DATA_FOLDER $CONF_FOLDER
 
-COPY command-list.txt $DATA_FOLDER/command-list.txt
-COPY turns.json $DATA_FOLDER/turns.json
+COPY ./etc/command-list.txt $CONF_FOLDER/command-list.txt
+COPY ./etc/turns.json $CONF_FOLDER/turns.json
+
 # install sources
 WORKDIR /usr/local/curiel_bot
-COPY . .
+COPY ./index.js .
+COPY ./package.json .
+COPY ./package-lock.json .
+COPY ./readme.md .
+ADD ./src ./src
 RUN npm install
-CMD ["node", "index.js"]
+
+# added entrypoint to setup default configs in data folder if absent
+COPY ./entrypoint.sh .
+
+CMD ["/bin/bash","./entrypoint.sh"]
