@@ -1,9 +1,0 @@
-services:
-  curiel_bot:
-    image: carnivuth/curiel_bot:latest
-    restart: unless-stopped
-    environment:
-      TOKEN: "<INSERT TOKEN HERE>"
-      ADMIN: "<TELEGRAM USERNAME OF ADMIN USER>"
-    volumes:
-      - '<PATH TO DATA FOLDER ON DISK>:/var/lib/curiel_bot/'
