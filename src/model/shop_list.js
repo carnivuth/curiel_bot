@@ -39,4 +39,8 @@ module.exports = class ShopList extends PersistentList{
       });
     this.saveToJson()
   }
+  clear(){
+    this.list = []
+    this.saveToJson()
+  }
 }

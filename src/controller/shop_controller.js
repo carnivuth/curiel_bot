@@ -16,6 +16,7 @@ module.exports = class ShopController extends Controller {
     this.bot.onText(/\/manca (.+)/, (msg, match) => {this.addShopItem(msg,match)})
     this.bot.onText(/\/mancanze/, (msg, match) => {this.getShopList(msg,match)})
     this.bot.onText(/\/preso (.+)/, (msg, match) => { this.removeItem(msg,match)})
+    this.bot.onText(/\/presotutto/, (msg, match) => {this.clearShopList(msg,match)})
   }
 
   addShopItem(msg, match){
@@ -57,6 +58,17 @@ module.exports = class ShopController extends Controller {
     var itemName = match[1];
     var item = new ShopItem(msg.from.username,itemName)
     this.shopList.removeItem(item)
+    response = "mancanze aggiornate!";
+
+    this.bot.sendMessage(chatId, response);
+  }
+  clearShopList(msg, match){
+    console.log(msg);
+    var response;
+    const chatId = msg.chat.id;
+    this.loadShopList(chatId);
+
+    this.shopList.clear()
     response = "mancanze aggiornate!";
 
     this.bot.sendMessage(chatId, response);
