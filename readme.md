@@ -86,13 +86,19 @@ classDiagram
         +string itemName
     }
 
-    class ReservationList{}
-    class ShopList{}
+    class ReservationList{
+    }
+    class ShopList{
+    }
 
-    class Controller{ }
-    class WasherController{ }
-    class ShopController{ }
-    class AdminController{ }
+    class Controller{
+    }
+    class WasherController{
+    }
+    class ShopController{
+    }
+    class AdminController{
+    }
 ```
 ## runtime architecture
 
