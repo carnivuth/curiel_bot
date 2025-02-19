@@ -106,10 +106,13 @@ At runtime the bot pull messages and process requests based on chat id, differen
 
 ```mermaid
 flowchart TD
-A[telegram bot container]
-B[telegram api]
+subgraph container
+direction TB
+A[curiel bot]
 C[chat-1.json]
 D[chat-2.json]
+end
+B[(telegram api)]
 B -- message in chat 1 --> A -- writes in --> C
 B -- message in chat 2 --> A -- writes in --> D
 
@@ -117,3 +120,28 @@ B -- message in chat 2 --> A -- writes in --> D
 
 ## development environment
 
+In order to create a functional development environment to run and test the bot do as follows:
+
+- create a telegram bot and get it's token for development
+- clone repo and create a `var` folder
+- use the following docker-compose file
+
+```yaml
+services:
+  curiel_bot:
+    image: curiel_bot
+    restart: unless-stopped
+    environment:
+      TOKEN: "[TELEGRAM DEV BOT TOKEN]"
+      ADMIN: "[YOUR TELEGRAM USERNAME]"
+    volumes:
+      - '/[PATH_TO_CLONED_REPO]/var:/var/lib/curiel_bot'
+```
+
+to build and rerun the container use the following command:
+
+```bash
+docker build . -t curiel_bot && docker compose down && docker compose up
+```
+
+It will build the image locally and restart the container in foreground mode
