@@ -4,9 +4,7 @@ if [[ ! -f "$DATA_FOLDER/turns.json" ]]; then
   cp "$CONF_FOLDER/turns.json" "$DATA_FOLDER/turns.json";
 fi
 
-if [[ ! -f "$DATA_FOLDER/commands.json" ]]; then
-  echo "setting default command list"
-  cp "$CONF_FOLDER/commands.json" "$DATA_FOLDER/commands.json";
-fi
+echo "setting default command list"
+cp "$CONF_FOLDER/commands.json" "$DATA_FOLDER/commands.json";
 
 node index.js

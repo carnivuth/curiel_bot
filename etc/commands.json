@@ -1,12 +1,10 @@
 [
-  { "command": "lavatrice", "description": "get washing machine's reservation for the next 7 days"},
-  { "command": "prenota", "description": "make reservation for the washing machine at a specific turn of a day"},
-  { "command": "libera", "description": "delete washing machine reservation #TODO"},
-  { "command": "turni", "description": "get washing machine's turn schedule"},
-  { "command": "manca", "description": "add item to the shopping list"},
-  { "command": "preso", "description": "remove item from the shopping list"},
-  { "command": "mancanze", "description":  "print shopping list"},
-  { "command": "admin", "description": "check if current user is the admin bot"},
-  { "command": "rimuovimancanze", "description": "remove all elements from shopping list"},
-  { "command": "help", "description": "show help command"}
+  { "command": "lavatrice", "description": "stampa le prenotazioni per i prossimi 7 giorni"},
+  { "command": "prenota", "description": "prenota la lavatrice per un dato giorno e turno"},
+  { "command": "turni", "description": "stampa suddivisione dei turni"},
+  { "command": "manca", "description": "aggiungi oggetto nella shopping list"},
+  { "command": "preso", "description": "rimuovi oggetto nella shopping list"},
+  { "command": "presotutto", "description": "rimuovi tutto dalla shopping list"},
+  { "command": "mancanze", "description":  "stampa shopping list"},
+  { "command": "admin", "description": "controlla se sei admin"}
 ]
