@@ -29,6 +29,7 @@ The bot manages also washer reservations, the commands are as follows:
 There are also admin commands for management of the bot:
 
 - `/admin` - check if current user is the admin bot
+- `/commands` - show command list
 
 ## Installation
 
