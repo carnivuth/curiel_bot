@@ -4,7 +4,7 @@ ENV DATA_FOLDER=/var/lib/curiel_bot
 ENV CONF_FOLDER=/etc/curiel_bot
 RUN mkdir -p $DATA_FOLDER $CONF_FOLDER
 
-COPY ./etc/command-list.txt $CONF_FOLDER/command-list.txt
+COPY ./etc/commands.json $CONF_FOLDER/commands.json
 COPY ./etc/turns.json $CONF_FOLDER/turns.json
 
 # install sources
