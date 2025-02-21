@@ -6,5 +6,6 @@
   { "command": "preso", "description": "rimuovi oggetto nella shopping list"},
   { "command": "presotutto", "description": "rimuovi tutto dalla shopping list"},
   { "command": "mancanze", "description":  "stampa shopping list"},
+  { "command": "commands", "description": "stampa la lista dei comandi"},
   { "command": "admin", "description": "controlla se sei admin"}
 ]
