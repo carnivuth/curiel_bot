@@ -21,7 +21,7 @@ The bot manages also washer reservations, the commands are as follows:
 
 - `/lavatrice` - get washing machine's reservation for the next 7 days
 - `/prenota <day> <turn>` - make reservation for the washing machine at a specific turn of a day
-- `/libera` - delete washing machine reservation #TODO
+- `/libera` - delete washing machine reservation
 - `/turni` - get washing machine's turn schedule
 
 ### Admin commands
@@ -133,7 +133,8 @@ In order to create a functional development environment to run and test the bot 
 ```yaml
 services:
   curiel_bot:
-    image: curiel_bot
+    image:
+      dockerfile: ./Dockerfile
     restart: unless-stopped
     environment:
       TOKEN: "[TELEGRAM DEV BOT TOKEN]"

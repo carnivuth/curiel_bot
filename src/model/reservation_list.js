@@ -22,6 +22,29 @@ module.exports = class ReservationList extends PersistentList{
     return validReservations
   }
 
+  removeReservation(reservation){
+
+    // filter reservations to search for same date and time
+    var reservationRemovedList = this.getValidReservations().filter(function (r) {
+      return r.date != reservation.date || r.turn != reservation.turn || r.username != reservation.username;
+    });
+    console.log(reservationRemovedList)
+
+    if (reservationRemovedList.length != this.list.length ) {
+
+      this.list = reservationRemovedList
+      this.saveToJson()
+      return true
+    }
+    return false
+  }
+  printValidReservations(){
+    var result= ''
+      this.getValidReservations().forEach((reservation) => {
+        result += "@" + reservation.username + " ha prenotato " + new Date(reservation.date).toLocaleDateString() + " il turno " + reservation.turn + "\n";
+      });
+  return result
+  }
   addReservation(reservation){
 
     // filter reservations to search for same date and time

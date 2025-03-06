@@ -1,6 +1,7 @@
 [
   { "command": "lavatrice", "description": "stampa le prenotazioni per i prossimi 7 giorni"},
   { "command": "prenota", "description": "prenota la lavatrice per un dato giorno e turno"},
+  { "command": "libera", "description": "libera un turno prenotato"},
   { "command": "turni", "description": "stampa suddivisione dei turni"},
   { "command": "manca", "description": "aggiungi oggetto nella shopping list"},
   { "command": "preso", "description": "rimuovi oggetto nella shopping list"},
