@@ -56,7 +56,7 @@ services:
 
 ## Development documentation
 
->[!WARNING] This documentation is for development only!!!
+>[!Warning] This documentation is for development only!!!
 
 The bot is developed using [node.js](https://nodejs.org/) and [telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api) library
 
