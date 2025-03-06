@@ -133,7 +133,7 @@ In order to create a functional development environment to run and test the bot 
 ```yaml
 services:
   curiel_bot:
-    image:
+    build:
       dockerfile: ./Dockerfile
     restart: unless-stopped
     environment:
@@ -144,13 +144,19 @@ services:
         # needed for date localization
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
-
+    develop:
+      watch:
+        - path: ./Dockerfile
+          action: rebuild
+        - path: ./src/
+          action: sync+restart
+          target: /usr/local/curiel_bot/src
 ```
 
 to build and rerun the container use the following command:
 
 ```bash
-docker build . -t curiel_bot && docker compose down && docker compose up
+docker compose watch
 ```
 
 It will build the image locally and restart the container in foreground mode
