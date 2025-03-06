@@ -51,7 +51,6 @@ services:
     volumes:
       - '<PATH TO DATA FOLDER ON DISK>:/var/lib/curiel_bot/'
         # needed for date localization
-      - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
 ```
 
