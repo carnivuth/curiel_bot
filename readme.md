@@ -38,7 +38,7 @@ Installation is done trough the docker image, requirements are as follows
 - a telegram bot account and token
 - a telegram user that will be the admin of the bot (*can run admin commands*)
 
-using docker compose:
+Using docker compose:
 
 ```yaml
 services:
