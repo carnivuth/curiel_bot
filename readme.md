@@ -2,6 +2,8 @@
 
 This is a telegram bot for management of common resources inside the home to avoid loosing time and keep track of food storage and washing machine usage, it's one of my best effort project cause i don't have time for this :(
 
+![](./demo.gif)
+
 ## Features
 
 The bot main features are shop list management and washer reservations
