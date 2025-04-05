@@ -10,8 +10,8 @@ The bot main features are shop list management and washer reservations
 
 The bot manages a shop list of items to buy, the commands are as follows:
 
-- `/manca <item>` - add item to the shopping list
-- `/preso <item>` - remove item from the shopping list
+- `/manca <item[,item....]>` - add item to the shopping list (*multiple items are supported*)
+- `/preso <item[,item....]>` - remove item from the shopping list (*multiple items are supported*)
 - `/mancanze` -  print shopping list
 
 
@@ -56,11 +56,12 @@ services:
 
 ## Development documentation
 
->[!Warning] This documentation is for development only!!!
+>[!WARNING]
+> This documentation is for development only!!!
 
 The bot is developed using [node.js](https://nodejs.org/) and [telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api) library
 
-## domain model
+## Domain model
 
 ```mermaid
 classDiagram
@@ -103,7 +104,8 @@ classDiagram
     class AdminController{
     }
 ```
-## runtime architecture
+
+## Runtime architecture
 
 At runtime the bot pull messages and process requests based on chat id, different chats can share the bot instance and data are stored based in `chatId` parameter
 
@@ -121,7 +123,7 @@ B -- message in chat 2 --> A -- writes in --> D
 
 ```
 
-## development environment
+## Development environment
 
 In order to create a functional development environment to run and test the bot do as follows:
 
@@ -152,7 +154,7 @@ services:
           target: /usr/local/curiel_bot/src
 ```
 
-to build and rerun the container use the following command:
+To build and rerun the container use the following command:
 
 ```bash
 docker compose watch

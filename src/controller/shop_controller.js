@@ -25,13 +25,18 @@ module.exports = class ShopController extends Controller {
     var response ='';
     const chatId = msg.chat.id;
     this.loadShopList(chatId);
-    var itemName = match[1];
-    var item = new ShopItem(msg.from.username,itemName)
-    if(this.shopList.addShopItem(item)){
-      response = "oggetto mancante: " + item.itemName + " aggiunto da @" + item.username;
-    }else{
-      response = "oggetto gia presente! vai easy"
-    }
+    var itemsNames = match[1].split(',');
+
+    itemsNames.forEach((itemName) =>{
+
+      var item = new ShopItem(msg.from.username,itemName.trim())
+      if(this.shopList.addShopItem(item)){
+        response += "oggetto mancante: " + item.itemName + " aggiunto da @" + item.username + "\n";
+      }else{
+        response += "oggetto " + item.itemName + "gia presente in lista! vai easy \n"
+      }
+
+    })
     this.bot.sendMessage(chatId, response);
   }
 
@@ -55,13 +60,19 @@ module.exports = class ShopController extends Controller {
     const chatId = msg.chat.id;
     this.loadShopList(chatId);
 
-    var itemName = match[1];
-    var item = new ShopItem(msg.from.username,itemName)
-    this.shopList.removeItem(item)
-    response = "mancanze aggiornate!";
+    var itemsNames = match[1].split(',');
+
+    itemsNames.forEach((itemName) =>{
+
+      var item = new ShopItem(msg.from.username,itemName.trim())
+      this.shopList.removeItem(item)
+
+    })
+    response = "mancanze aggiornate\n " + this.shopList.printShopList();
 
     this.bot.sendMessage(chatId, response);
   }
+
   clearShopList(msg, match){
     console.log(msg);
     var response;
@@ -69,7 +80,7 @@ module.exports = class ShopController extends Controller {
     this.loadShopList(chatId);
 
     this.shopList.clear()
-    response = "mancanze aggiornate!";
+    response = "la lista della spesa e stata svuotata!";
 
     this.bot.sendMessage(chatId, response);
   }
