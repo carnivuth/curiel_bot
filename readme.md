@@ -16,7 +16,6 @@ The bot manages a shop list of items to buy, the commands are as follows:
 - `/preso <item[,item....]>` - remove item from the shopping list (*multiple items are supported*)
 - `/mancanze` -  print shopping list
 
-
 ### Washier reservations
 
 The bot manages also washer reservations, the commands are as follows:
@@ -130,7 +129,7 @@ B -- message in chat 2 --> A -- writes in --> D
 In order to create a functional development environment to run and test the bot do as follows:
 
 - create a telegram bot and get it's token for development
-- clone repo and create a `var` folder
+- clone the [project](https://github.com/carnivuth/curiel_bot)
 - use the following docker-compose file
 
 ```yaml
