@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:24.10.0-trixie-slim
 # create data folder and seed initial data
 ENV DATA_FOLDER=/var/lib/curiel_bot
 ENV CONF_FOLDER=/etc/curiel_bot
