@@ -68,7 +68,7 @@ module.exports = class WasherController extends Controller {
       // add reservation and setup response
       if(this.reservations.removeReservation(reservation)){
         console.log("reservation removed: ",reservation)
-        response ="turno: " + reservation.turn + " del giorno: " + reservation.date + " prenotato  da @" + reservation.username +" e stato liberato";
+        response ="turno: " + reservation.turn + " del giorno: " + reservation.date + " prenotato  da @" + reservation.username +" è stato liberato";
       }else{
         response = "il turno non era tuo o non esisteva, vai nel gulag";
       }

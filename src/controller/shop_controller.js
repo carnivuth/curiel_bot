@@ -80,7 +80,7 @@ module.exports = class ShopController extends Controller {
     this.loadShopList(chatId);
 
     this.shopList.clear()
-    response = "la lista della spesa e stata svuotata!";
+    response = "la lista della spesa è stata svuotata!";
 
     this.bot.sendMessage(chatId, response);
   }
