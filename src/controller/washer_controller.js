@@ -16,7 +16,7 @@ module.exports = class WasherController extends Controller {
     this.getReservations = this.getReservations.bind(this);
     this.getTurns = this.getTurns.bind(this);
 
-    this.bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5])/, (msg,match) => {this.reserve(msg,match)})
+    this.bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5](,[1-5])+)/, (msg,match) => {this.reserve(msg,match)})
     this.bot.onText(/\/libera ([a-zA-Zì]+) ([1-5])/, (msg,match) => {this.removeReservation(msg,match)})
     this.bot.onText(/\/lavatrice/, (msg,match) => {this.getReservations(msg,match)})
     this.bot.onText(/\/turni/, (msg, match) => {this.getTurns(msg,match)});
@@ -90,7 +90,7 @@ module.exports = class WasherController extends Controller {
 
     // parse params
     var dayOfWeek = match[1];
-    var turn = match[2];
+    var turns = match[2].split(',');
     if (dateutils.getdaynumber(dayOfWeek) == undefined) {
       response = "hai sbagliato il giorno, vai nel gulag";
     }else{
@@ -99,18 +99,20 @@ module.exports = class WasherController extends Controller {
       var date = dateutils.getdatefromweekday(dateutils.getdaynumber(dayOfWeek)).toLocaleString(undefined,{  year: "numeric", month: "2-digit", day: "2-digit", });
 
       // create reservation
-      var reservation = new Reservation(msg.from.username,date,turn)
-      console.log("reservation to be added: ",reservation)
+      turns.forEach((turn) =>{
+        var reservation = new Reservation(msg.from.username,date,turn)
+        console.log("reservation to be added: ",reservation)
 
-      // add reservation and setup response
-      if(this.reservations.addReservation(reservation)){
-        console.log("reservation added: ",reservation)
-        response ="turno: " + reservation.turn + " del giorno: " + reservation.date + " assegnato a @" + reservation.username;
-      }else{
-        response = "turno gia preso, vai nel gulag";
-      }
-
+        // add reservation and setup response
+        if(this.reservations.addReservation(reservation)){
+          console.log("reservation added: ",reservation)
+          response +="turno: " + reservation.turn + " del giorno: " + reservation.date + " assegnato a @" + reservation.username+ "\n";
+        }else{
+          response +="turno: " + reservation.turn + " del giorno: " + reservation.date + " gia preso, vai nel gulag\n";
+        }
+      })
     }
+
     this.bot.sendMessage(chatId, response);
   }
 
