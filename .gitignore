@@ -1,4 +1,4 @@
 .envrc
 node_modules
 var
-docker-compose.yml
+.env
