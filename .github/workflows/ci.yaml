@@ -26,5 +26,5 @@ jobs:
           push: true
           tags: carnivuth/curiel_bot:${{ github.ref_name }},carnivuth/curiel_bot:latest
           build-args:
-            CURIEL_BOT_VERSION: ${{ github.ref_name }}
+            - CURIEL_BOT_VERSION=${{ github.ref_name }}
 
