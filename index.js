@@ -13,6 +13,15 @@ bot.on('polling_error', (error) => {
   console.log(error.code);  // => 'EFATAL'
 });
 
+// send message to subscribers that bot has started
+if (process.env.CURIEL_BOT_SUBSCRIBERS_CHAT_IDS) {
+  var message = "curiel bot version " + process.env.CURIEL_BOT_VERSION + " started"
+  for (var chatId of process.env.CURIEL_BOT_SUBSCRIBERS_CHAT_IDS.split(',')) {
+    console.log(message);
+    bot.api.sendMessage({chat_id: chatId, text: message});
+  }
+}
+
 // whaser commands
 washerController = new WasherController(bot,process.env.DATA_FOLDER);
 // shop commands
