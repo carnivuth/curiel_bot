@@ -11,8 +11,8 @@ module.exports = class adminController extends Controller {
 
     this.isAdmin = this.isAdmin.bind(this);
     this.getCommands = this.getCommands.bind(this);
-    this.bot.onText(/\/admin/, (msg, match) => {this.isAdmin(msg,match)})
-    this.bot.onText(/\/commands/, (msg, match) => {this.getCommands(msg,match)})
+    this.bot.hears(/\/admin/, (msg, match) => {this.isAdmin(msg,match)})
+    this.bot.hears(/\/commands/, (msg, match) => {this.getCommands(msg,match)})
   }
   isAdmin(msg,match){
     console.log(msg);
