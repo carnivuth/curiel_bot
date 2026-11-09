@@ -1,6 +1,6 @@
 {
   "name": "curiel_bot",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "telegram bot for home management",
   "main": "index.js",
   "scripts": {
