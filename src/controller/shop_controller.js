@@ -13,23 +13,23 @@ module.exports = class ShopController extends Controller {
     this.getShopList = this.getShopList.bind(this);
     this.removeItem = this.removeItem.bind(this);
 
-    this.bot.hears(/\/manca (.+)/, (msg, match) => {this.addShopItem(msg,match)})
-    this.bot.hears(/\/mancanze/, (msg, match) => {this.getShopList(msg,match)})
-    this.bot.hears(/\/preso (.+)/, (msg, match) => { this.removeItem(msg,match)})
-    this.bot.hears(/\/presotutto/, (msg, match) => {this.clearShopList(msg,match)})
+    this.bot.hears(/\/manca (.+)/, (ctx) => {this.addShopItem(ctx)})
+    this.bot.hears(/\/mancanze/, (ctx) => {this.getShopList(ctx)})
+    this.bot.hears(/\/preso (.+)/, (ctx) => { this.removeItem(ctx)})
+    this.bot.hears(/\/presotutto/, (ctx) => {this.clearShopList(ctx)})
   }
 
-  addShopItem(msg, match){
+  addShopItem(ctx){
 
-    console.log(msg);
+    console.log(ctx.update.message.text);
     var response ='';
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
     this.loadShopList(chatId);
-    var itemsNames = match[1].split(',');
+    var itemsNames = ctx.match[1].split(',');
 
     itemsNames.forEach((itemName) =>{
 
-      var item = new ShopItem(msg.from.username,itemName.trim())
+      var item = new ShopItem(ctx.message.from.username,itemName.trim())
       if(this.shopList.addShopItem(item)){
         response += "oggetto mancante: " + item.itemName + " aggiunto da @" + item.username + "\n";
       }else{
@@ -37,13 +37,13 @@ module.exports = class ShopController extends Controller {
       }
 
     })
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
-  getShopList(msg,match) {
-    console.log(msg);
+  getShopList(ctx) {
+    console.log(ctx.update.message.text);
     var response = ''
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
     this.loadShopList(chatId);
 
     if (this.shopList.list.length == 0) {
@@ -51,38 +51,38 @@ module.exports = class ShopController extends Controller {
     }else{
       response = this.shopList.printShopList()
     }
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
-  removeItem(msg, match){
-    console.log(msg);
+  removeItem(ctx){
+    console.log(ctx.update.message.text);
     var response;
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
     this.loadShopList(chatId);
 
-    var itemsNames = match[1].split(',');
+    var itemsNames = ctx.match[1].split(',');
 
     itemsNames.forEach((itemName) =>{
 
-      var item = new ShopItem(msg.from.username,itemName.trim())
+      var item = new ShopItem(ctx.update.message.from.username,itemName.trim())
       this.shopList.removeItem(item)
 
     })
     response = "mancanze aggiornate\n " + this.shopList.printShopList();
 
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
-  clearShopList(msg, match){
-    console.log(msg);
+  clearShopList(ctx){
+    console.log(ctx.update.message.text);
     var response;
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
     this.loadShopList(chatId);
 
     this.shopList.clear()
     response = "la lista della spesa è stata svuotata!";
 
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
   loadShopList(chatId){
