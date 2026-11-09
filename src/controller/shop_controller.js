@@ -13,10 +13,10 @@ module.exports = class ShopController extends Controller {
     this.getShopList = this.getShopList.bind(this);
     this.removeItem = this.removeItem.bind(this);
 
-    this.bot.onText(/\/manca (.+)/, (msg, match) => {this.addShopItem(msg,match)})
-    this.bot.onText(/\/mancanze/, (msg, match) => {this.getShopList(msg,match)})
-    this.bot.onText(/\/preso (.+)/, (msg, match) => { this.removeItem(msg,match)})
-    this.bot.onText(/\/presotutto/, (msg, match) => {this.clearShopList(msg,match)})
+    this.bot.hears(/\/manca (.+)/, (msg, match) => {this.addShopItem(msg,match)})
+    this.bot.hears(/\/mancanze/, (msg, match) => {this.getShopList(msg,match)})
+    this.bot.hears(/\/preso (.+)/, (msg, match) => { this.removeItem(msg,match)})
+    this.bot.hears(/\/presotutto/, (msg, match) => {this.clearShopList(msg,match)})
   }
 
   addShopItem(msg, match){
