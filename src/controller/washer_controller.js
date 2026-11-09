@@ -16,16 +16,16 @@ module.exports = class WasherController extends Controller {
     this.getReservations = this.getReservations.bind(this);
     this.getTurns = this.getTurns.bind(this);
 
-    this.bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5](,[1-5])*)/, (msg,match) => {this.reserve(msg,match)})
-    this.bot.onText(/\/libera ([a-zA-Zì]+) ([1-5])/, (msg,match) => {this.removeReservation(msg,match)})
-    this.bot.onText(/\/lavatrice/, (msg,match) => {this.getReservations(msg,match)})
-    this.bot.onText(/\/turni/, (msg, match) => {this.getTurns(msg,match)});
+    this.bot.hears(/\/prenota ([a-zA-Zì]+) ([1-5](,[1-5])*)/, (ctx) => {this.reserve(ctx)})
+    this.bot.hears(/\/libera ([a-zA-Zì]+) ([1-5])/, (ctx) => {this.removeReservation(ctx)})
+    this.bot.hears(/\/lavatrice/, (ctx) => {this.getReservations(ctx)})
+    this.bot.hears(/\/turni/, (ctx) => {this.getTurns(ctx)});
   }
 
-  getReservations(msg, match){
-    console.log(msg);
+  getReservations(ctx){
+    console.log(ctx.update.message.text);
     // get chat id for datafile
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
     this.loadReservationList(chatId)
 
     var response = "PRENOTAZIONI:\n";
@@ -40,20 +40,20 @@ module.exports = class WasherController extends Controller {
       // list reservations to the user
       response = this.reservations.printValidReservations();
     }
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
-  removeReservation(msg,match){
+  removeReservation(ctx){
 
     var response= '';
-    console.log(msg);
-    const chatId = msg.chat.id;
+    console.log(ctx.update.message.text);
+    const chatId = ctx.update.message.chat.id;
 
     // get data for specific chat
     this.loadReservationList(chatId)
 
     // parse params
-    var dayOfWeek = match[1];
-    var turn = match[2];
+    var dayOfWeek = ctx.match[1];
+    var turn = ctx.match[2];
     if (dateutils.getdaynumber(dayOfWeek) == undefined) {
       response = "hai sbagliato il giorno, vai nel gulag";
     }else{
@@ -62,7 +62,7 @@ module.exports = class WasherController extends Controller {
       var date = dateutils.getdatefromweekday(dateutils.getdaynumber(dayOfWeek)).toLocaleString(undefined,{  year: "numeric", month: "2-digit", day: "2-digit", });
 
       // create reservation
-      var reservation = new Reservation(msg.from.username,date,turn)
+      var reservation = new Reservation(ctx.update.message.from.username,date,turn)
       console.log("reservation to be removed: ",reservation)
 
       // add reservation and setup response
@@ -75,22 +75,22 @@ module.exports = class WasherController extends Controller {
     }
 
 
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
 
   }
 
-  reserve(msg,match) {
+  reserve(ctx) {
 
     var response= '';
-    console.log(msg);
-    const chatId = msg.chat.id;
+    console.log(ctx.update.message.text);
+    const chatId = ctx.update.message.chat.id;
 
     // get data for specific chat
     this.loadReservationList(chatId)
 
     // parse params
-    var dayOfWeek = match[1];
-    var turns = match[2].split(',');
+    var dayOfWeek = ctx.match[1];
+    var turn = ctx.match[2].split(',');
     if (dateutils.getdaynumber(dayOfWeek) == undefined) {
       response = "hai sbagliato il giorno, vai nel gulag";
     }else{
@@ -100,7 +100,7 @@ module.exports = class WasherController extends Controller {
 
       // create reservation
       turns.forEach((turn) =>{
-        var reservation = new Reservation(msg.from.username,date,turn)
+        var reservation = new Reservation(ctx.update.message.from.username,date,turn)
         console.log("reservation to be added: ",reservation)
 
         // add reservation and setup response
@@ -112,18 +112,17 @@ module.exports = class WasherController extends Controller {
         }
       })
     }
-
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
 
-  getTurns(msg,match){
-    console.log(msg);
+  getTurns(ctx){
+    console.log(ctx.update.message.text);
     var response = "TURNI:\n";
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
 
     response += this.turns.printTurns()
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
   loadReservationList(chatId){
