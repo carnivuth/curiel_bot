@@ -16,7 +16,7 @@ module.exports = class WasherController extends Controller {
     this.getReservations = this.getReservations.bind(this);
     this.getTurns = this.getTurns.bind(this);
 
-    this.bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5](,[1-5])+)/, (msg,match) => {this.reserve(msg,match)})
+    this.bot.onText(/\/prenota ([a-zA-Zì]+) ([1-5](,[1-5])*)/, (msg,match) => {this.reserve(msg,match)})
     this.bot.onText(/\/libera ([a-zA-Zì]+) ([1-5])/, (msg,match) => {this.removeReservation(msg,match)})
     this.bot.onText(/\/lavatrice/, (msg,match) => {this.getReservations(msg,match)})
     this.bot.onText(/\/turni/, (msg, match) => {this.getTurns(msg,match)});
