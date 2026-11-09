@@ -11,34 +11,34 @@ module.exports = class adminController extends Controller {
 
     this.isAdmin = this.isAdmin.bind(this);
     this.getCommands = this.getCommands.bind(this);
-    this.bot.hears(/\/admin/, (msg, match) => {this.isAdmin(msg,match)})
-    this.bot.hears(/\/commands/, (msg, match) => {this.getCommands(msg,match)})
+    this.bot.hears(/\/admin/, (ctx) => {this.isAdmin(ctx)})
+    this.bot.hears(/\/commands/, (ctx) => {this.getCommands(ctx)})
   }
-  isAdmin(msg,match){
-    console.log(msg);
+  isAdmin(ctx){
+    console.log(ctx.update.message.text);
     var response ='';
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
 
-    if(this.admin !== msg.from.username){
+    if(this.admin !== ctx.update.message.from.username){
       response = "non hai il consenso del partito per lanciare questo comando";
     }else{
       response = "sei il capo supremo del partito";
     }
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 
-  getCommands(msg,match){
-    console.log(msg);
+  getCommands(ctx){
+    console.log(ctx.update.message.text);
     var response ='';
-    const chatId = msg.chat.id;
+    const chatId = ctx.update.message.chat.id;
 
-    if(this.admin !== msg.from.username){
+    if(this.admin !== ctx.update.message.from.username){
       response = "non hai il consenso del partito per lanciare questo comando";
     }else{
       this.commands.list.forEach((command)  => {
         response += command.command + " - " + command.description+ "\n"
       });
     }
-    this.bot.sendMessage(chatId, response);
+    ctx.reply(response);
   }
 }
