@@ -90,7 +90,7 @@ module.exports = class WasherController extends Controller {
 
     // parse params
     var dayOfWeek = ctx.match[1];
-    var turn = ctx.match[2].split(',');
+    var turns = ctx.match[2].split(',');
     if (dateutils.getdaynumber(dayOfWeek) == undefined) {
       response = "hai sbagliato il giorno, vai nel gulag";
     }else{
