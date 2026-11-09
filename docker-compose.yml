@@ -1,0 +1,26 @@
+---
+services:
+  curiel_bot:
+    build:
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - ADMIN="carnivuth"
+      - CURIEL_BOT_SUBSCRIBERS_CHAT_IDS=172157767
+    volumes:
+      - './var:/var/lib/curiel_bot/'
+        # needed for date localization
+      - "/etc/localtime:/etc/localtime:ro"
+    develop:
+      watch:
+        - path: ./Dockerfile
+          action: rebuild
+        - path: package.json
+          action: rebuild
+        - path: ./index.js
+          action: sync+restart
+          target: /usr/local/curiel_bot/src
+        - path: ./src/
+          action: sync+restart
+          target: /usr/local/curiel_bot/src
